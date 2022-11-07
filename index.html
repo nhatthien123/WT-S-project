@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html leng=""en>
+<head>
+    <meta charset="UTF-8">
+    <title> Chương trình quản lý việc cần làm</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheeet" href="form.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="tasks">
+            <div>
+                <h2>Nhiệm Vụ Mới{{Task.length}}</h2>
+                <ol class="list-group">
+                    <li v-for="task in tasks" class="list-group-item">
+                        {{tasks.body}}
+                        <button @click="removeTask(task)">&#10007;</button>
+                    </li>
+                </ol>
+                
+            </div>
+            
+            <form @submit="addTask">
+                <div class="form-group">
+                    <input v-model="newTask" class="form-control" placeholder="Tôi muốn...">
+                </div>
+                
+                <button class="btn btn-primary" type="submit">Thêm Nhiệm Vụ</button>
+            </form>
+            <hr>
+            <pre>{{$data | json}}</pre>
+        </div>				
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.41/vue.cjs.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
